@@ -1,0 +1,22 @@
+extends ../layout.jade
+
+block content
+  h1 Albums
+
+  a(href="/albums/new") New Albums
+  p
+  table(border='1' id='tblAlbum')
+    th Artist
+    th Album
+    th Lyrics
+    th Stars
+    th Genre
+      for album in albums
+        tr
+          td #{album.artist}
+          td #{album.album}
+          td #{album.lyrics}
+          td #{album.stars}
+          td 
+            span
+              a(href="/albums/#{album._id}") #{album.genre}

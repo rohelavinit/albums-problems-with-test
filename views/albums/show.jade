@@ -1,0 +1,8 @@
+extends ../layout.jade
+block content
+  h1 Showing Album: #{album.album}
+  h5 Genre: #{album.genre}
+  h5 Artist: #{album.artist}
+  a(href='edit/#{album._id}') Edit
+  form(name="delete-album" method="POST" action="/albums/#{album._id}?_method=DELETE")
+    input(type="submit" value="Delete album")

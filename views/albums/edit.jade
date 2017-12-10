@@ -1,0 +1,33 @@
+extends ../layout.jade
+block content
+  form(name="edit-album" method="POST" action="/albums/#{album._id}?_method=PATCH")
+    p
+      label(for="album") Album
+      input(type="text" name="album" value="#{album.album}")
+    p
+      label(for="artist") Artist
+      input(type="text" name="artist" value="#{album.artist}")
+    p
+      label(for="genre") Genre
+      select(name='genre')
+        option(selected = album.genre) #{album.genre}
+          option Jazz
+          option Rock
+          option Folk
+    p
+      label(for="stars") Stars
+      p
+      label(for="1") 1
+      input(type="radio", name="stars", value="1", checked="#{album.stars}"=="1")
+      input(type="radio", name="stars", value="2", checked="#{album.stars}"=="2")
+      input(type="radio", name="stars", value="3", checked="#{album.stars}"=="3")
+      input(type="radio", name="stars", value="4", checked="#{album.stars}"=="4")
+      input(type="radio", name="stars", value="5", checked="#{album.stars}"=="5")
+      label(for="5") 5
+    p
+      input(type="checkbox", name="lyrics", value="#{album.lyrics}", checked="#{album.lyrics}"=="off")
+      | Contains Explicit Lyrics
+    p
+      label(for="lyrics") lyrics value : #{album.lyrics}
+    p
+      input(type="submit" value="Update album")
